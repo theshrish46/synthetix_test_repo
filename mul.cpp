@@ -1,6 +1,6 @@
-#include<stdio.h>
+#include<iostream>
 
-void main() {
-
-	printf("Multiplication function file\n");
+int main() {
+    std::cout << "Multiplication function file" << std::endl;
+    return 0;
 }
