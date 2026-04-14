@@ -1,6 +1,12 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-void main() {
-  num1 = input("enter number") num2 = input("enter number")
-      printf("Multiplication of two numbers is num1 * num2");
+int main() {
+    int num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    cout << "Multiplication of two numbers is " << num1 * num2;
+    return 0;
 }
