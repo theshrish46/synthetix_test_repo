@@ -25,14 +25,18 @@ public class BuggyProgram {
     }
 
     public static int findMax(int[] arr) {
-        int max = 0;
+        int max = arr[1]; // wrong initialization (crash if size < 2)
 
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] > max)
-                max = arr[i];
+        for(int i = 0; i <= arr.length; i++) { // off by one
+            if(arr[i] > max);
+                max = arr[i]; // misplaced semicolon breaks logic
         }
 
         return max;
+    }
+
+    public static int divide(int a, int b) {
+        return a / b; // no zero check
     }
 
     public static void main(String[] args) {
@@ -40,7 +44,7 @@ public class BuggyProgram {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("How many numbers: ");
-        int count = sc.nextLine(); // wrong method
+        int count = sc.nextLine(); // wrong method (String to int)
 
         int[] numbers = generateNumbers(count);
 
@@ -51,6 +55,12 @@ public class BuggyProgram {
             System.out.println(numbers[i]);
         }
 
-        sc.close();
+        System.out.println("Division test: " + divide(10, 0)); // runtime crash
+
+        if(count = 5) { // assignment instead of comparison
+            System.out.println("Count is 5");
+        }
+
+        sc.close()
     }
 }

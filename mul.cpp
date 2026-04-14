@@ -1,6 +1,6 @@
-#include<stdio.h>
+#include <stdio.h>
 
 void main() {
-
-	printf("Multiplication function file\n");
+  num1 = input("enter number") num2 = input("enter number")
+      printf("Multiplication of two numbers is num1 * num2");
 }

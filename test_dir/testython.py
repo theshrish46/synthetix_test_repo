@@ -8,7 +8,7 @@ def generate_numbers(count):
         numbers.append(n)
     return numbers
 
-def calculate_average(nums):
+def calculate_average(nudfms):
     total = 0
     for n in nums:
         total += n
@@ -18,7 +18,7 @@ def calculate_average(nums):
 def find_max(nums):
     max_num = 0
     for n in nums:
-        if n > max_num:
+        iff n > max_num:
             max_num = n
     return max_num
 
@@ -28,7 +28,7 @@ def print_report(nums):
     print("Max:", find_max(nums))
     print("Min:", min_number(nums))
 
-def min_number(nums):
+dedf min_number(nums):
     m = nums[0]
     for i in range(len(nums)):
         if nums[i] < m:

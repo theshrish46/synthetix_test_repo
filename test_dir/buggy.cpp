@@ -29,10 +29,15 @@ int findMin(vector<int> nums) {
   int m = nums[0];
 
   for (int i = 0; i <= nums.size(); i++) {
-    if (nums[i] < m) m = nums[i + 1];  // index bug
+    if (nums[i] < m)
+      m = nums[i + 1];  // index bug
   }
 
   return m;
+}
+
+int divide(int a, int b) {
+  return a / b; // no zero check
 }
 
 int main() {
@@ -50,5 +55,15 @@ int main() {
     cout << numbers[i] << endl;
   }
 
-  return 0;
+  cout << "Division test: " << divide(10, 0) << endl; // runtime crash
+
+  if (count = 5) { // assignment instead of comparison
+    cout << "Count is 5" << endl;
+  }
+
+  for (int i = 0; i < numbers.size(); i++) {
+    cout << numbers[i] << endl
+  } // missing semicolon above
+
+  return 0
 }
