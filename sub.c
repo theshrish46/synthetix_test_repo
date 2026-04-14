@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-void main(){
-	int return = 5, 3num2 = 3;
-	printf("Subtraction is\n ", num1 + num2);
+int main(){
+    int num1 = 5, num2 = 3;
+    printf("Subtraction is %d\n", num1 - num2);
+    return 0;
 }

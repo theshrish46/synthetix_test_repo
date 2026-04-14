@@ -2,43 +2,58 @@
 #include <stdlib.h>
 #include <time.h>
 
-int generateNumbers(int* arr, int count) {
-  for (int i = 0; i < count; i++) {
-    arr[i] = rand() % 100;
+// Function to generate random numbers and store them in an array
+int generateRandomNumbers(int* array, int size) {
+  for (int i = 0; i < size; i++) {
+    array[i] = rand() % 100;
   }
   return 0;
 }
 
-float average(int* arr, int count) {
-  int sum = 0;
-  for (int i = 0; i < count; i++) {
-    sum += arr[i];
+// Function to calculate the average of numbers in an array
+float calculateAverage(int* array, int size) {
+  if (size == 0) {
+    printf("Error: Cannot calculate average of zero numbers\n");
+    return 0.0;
   }
-  return (float)sum / count;
+  int sum = 0;
+  for (int i = 0; i < size; i++) {
+    sum += array[i];
+  }
+  return (float)sum / size;
 }
 
-int findMax(int* arr, int count) {
-  int max = arr[0];
-  for (int i = 1; i < count; i++) {
-    if (arr[i] > max) max = arr[i];
+// Function to find the maximum number in an array
+int findMaximum(int* array, int size) {
+  if (size == 0) {
+    printf("Error: Cannot find maximum of zero numbers\n");
+    return 0;
+  }
+  int max = array[0];
+  for (int i = 1; i < size; i++) {
+    if (array[i] > max) max = array[i];
   }
   return max;
 }
 
 int main() {
-  int count;
+  int numberOfValues;
   printf("How many numbers: ");
-  scanf("%d", &count);
-  int* numbers = malloc(count * sizeof(int));
+  scanf("%d", &numberOfValues);
+  if (numberOfValues <= 0) {
+    printf("Error: Number of values must be greater than zero\n");
+    return -1;
+  }
+  int* numbers = malloc(numberOfValues * sizeof(int));
   if (numbers == NULL) {
     printf("Memory allocation failed\n");
     return -1;
   }
   srand(time(NULL));
-  generateNumbers(numbers, count);
-  printf("Average: %f\n", average(numbers, count));
-  printf("Max: %d\n", findMax(numbers, count));
-  for (int i = 0; i < count; i++) {
+  generateRandomNumbers(numbers, numberOfValues);
+  printf("Average: %f\n", calculateAverage(numbers, numberOfValues));
+  printf("Max: %d\n", findMaximum(numbers, numberOfValues));
+  for (int i = 0; i < numberOfValues; i++) {
     printf("%d\n", numbers[i]);
   }
   free(numbers);
