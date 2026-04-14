@@ -2,6 +2,7 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 using namespace std;
 
@@ -20,26 +21,30 @@ double average(const vector<int>& nums) {
   for (int num : nums) {
     sum += num;
   }
+  if (nums.size() == 0) {
+    throw runtime_error("Cannot calculate average of empty vector");
+  }
   return static_cast<double>(sum) / nums.size();
 }
 
 int findMin(const vector<int>& nums) {
+  if (nums.size() == 0) {
+    throw runtime_error("Cannot find min of empty vector");
+  }
   int m = nums[0];
-<<<<<<< HEAD
-
-  for (int i = 0; i <= nums.size(); i++) {
-    if (nums[i] < m)
-      m = nums[i + 1];  // index bug
-=======
   for (int i = 1; i < nums.size(); i++) {
-    if (nums[i] < m) m = nums[i];
->>>>>>> e314da49b5bfccbbd7b439cb9605c758bddc4fe3
+    if (nums[i] < m) {
+      m = nums[i];
+    }
   }
   return m;
 }
 
 int divide(int a, int b) {
-  return a / b; // no zero check
+  if (b == 0) {
+    throw runtime_error("Division by zero");
+  }
+  return a / b;
 }
 
 int main() {
@@ -53,15 +58,19 @@ int main() {
     cout << numbers[i] << endl;
   }
 
-  cout << "Division test: " << divide(10, 0) << endl; // runtime crash
+  try {
+    cout << "Division test: " << divide(10, 0) << endl;
+  } catch (const exception& e) {
+    cerr << "Exception: " << e.what() << endl;
+  }
 
-  if (count = 5) { // assignment instead of comparison
+  if (count == 5) {
     cout << "Count is 5" << endl;
   }
 
   for (int i = 0; i < numbers.size(); i++) {
-    cout << numbers[i] << endl
-  } // missing semicolon above
+    cout << numbers[i] << endl;
+  }
 
-  return 0
+  return 0;
 }
